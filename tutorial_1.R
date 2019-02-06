@@ -41,18 +41,21 @@ skimr::skim(raw_data)
 ####
 # 3. Data manipulation with dplyr ----
 
-# In words, can you explain what %>% stands for? 
+# In words, can you explain what %>% stands for?   Answer is "Then"
+
 
 # Selecting columns 
 
 selected_data_1 <- raw_data %>%
-  dplyr::select(Age,Sex)
+  dplyr::select(Age,Sex) %>%
+  dplyr::filter(Age > 1) 
 
 # Task:
 
 # i. Select Age and Sex columns only 
 selected_data_1 <- raw_data %>%
-  dplyr::select(Age,Sex)
+  dplyr::select(Age,Sex) %>%
+  filter(Age > 1)
 
 # ii. Select all data apart from the Survived column
 selected_data_2 <- raw_data %>%
