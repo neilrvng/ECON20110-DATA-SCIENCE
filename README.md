@@ -23,7 +23,7 @@ Handouts will be provided in week 1 and R scripts will be in this repository in 
 
 All materials developed and delivered by Tom Franklin
 
-#### Tutorial 1 - 06/02/2019 at TBC 5pm-6:30pm
+#### Tutorial 1 - 06/02/2019 at Uni Place 5.207 5pm-6:30pm
 
 #### Tutorial 2 - 13/02/2019 at TBC 5pm-6:30pm
 
