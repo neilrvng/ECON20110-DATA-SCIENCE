@@ -62,39 +62,84 @@ selected_data_2 <- raw_data %>%
   dplyr::select(-Survived)
 
 # iii. Select the first three variables using numeric 
+selected_data_2 <- raw_data %>%
+  dplyr::select(1:3)
 
 # Filtering data
 
 # i. Filter data to keep only those where Pclass (passenger class) is equal to 1
+selected_data_2 <- raw_data %>%
+  dplyr::filter(Pclass==1)
 
 # 11. Filter the data to keep only data where there's first 
 #     class passengers and passengers are aged over 50
+selected_data_2 <- raw_data %>%
+  dplyr::filter(Pclass==1 & Age>50)
 
 # iii. Filter data to keep only 2nd and 3rd Class passengers 
+selected_data_2 <- raw_data %>%
+  dplyr::filter(Pclass==2 | Pclass==3)  # | means "OR"
+
+selected_data_2 %>%
+  dplyr::distinct(Pclass==2)
 
 # iv. Filter data for only those who Embarked n the journey from Cherbourg
+selected_data_2 <- raw_data %>%
+  dplyr::filter(Embarked=="C")
+
+selected_data_3 <- raw_data %>%
+  dplyr::filter(Pclass==1) %>%
+  dplyr::select(Age,Name,Pclass)
 
 # Renaming data
 
 # i. Rename the Sex column to be Gender, 
 
 # tip: rename(new_column_name = old_column_name)
+renamed_data_1 <- raw_data %>%
+  dplyr::rename(Room=Cabin)
+
 
 # Arranging data
 
 # i. Arrange the dataframe from low to high 
+young_to_old <- raw_data %>%
+  arrange((Age))
 
 # ii. Arrange Fare data from high to low
+low_to_high <- raw_data %>%
+  arrange(desc(Fare))
+
 
 # Make new variablea (mutate)
 
 # i. Create a new variable called fare_in_dollars, multiplying the fare by a conversion rate of 1.37
 
 # ii. Create an estimate of a passengers birth year by using their Age information!
+date_birth <- raw_data%>%
+  dplyr::mutate(date_birth = round(1912-Age))%>%
+  arrange(date_birth)
 
 # iii. Create a flag to indicate those who have an above average income (£29.70)
+raw_data %>%
+  dplyr::summarise(average_age = mean(Age, na.rm = TRUE))
+
+raw_data %>%
+  dplyr::group_by(Sex) %>%
+  dplyr::summarise(average_age = mean(Age, na.rm = TRUE))
+
+raw_data %>%
+  dplyr::group_by(Sex) %>%
+  dplyr::summarise(average_fare = mean(Fare, na.rm = TRUE))
+
+raw_data %>%
+  dplyr::group_by(Sex,Pclass) %>%
+  dplyr::summarise(average_age = mean(Age, na.rm = TRUE))
 
 # Summary statistics - refer to the booklet for tasks! 
+
+data_with_flag <- raw_data %>%
+  dplyr::mutate(above_average_age = ifelse(Age > 29.7 , 1 , 0))
 
 # Recoding data 
 
