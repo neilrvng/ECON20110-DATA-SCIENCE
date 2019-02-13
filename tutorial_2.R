@@ -13,6 +13,8 @@
 # 1. Install and load libraries ----
 library("tidyverse")
 # You'll need the `leaflet` library, install it and load it
+install.packages("leaflet")
+library("leaflet")
 
 ####
 # 2. Create map of UoM ----
